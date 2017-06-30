@@ -1,41 +1,45 @@
-	var myPlay =  Math.floor((Math.random() * 100) + 1);
+var myPlay =  Math.floor((Math.random() * 100) + 1);
 		if(myPlay < 33){
 //rock
 console.log(myPlay);
 console.log("rock");
 }else if(33 < myPlay && myPlay < 66){
 //paper
-console.log(myPlay)
-console.log("paper")
+console.log(myPlay);
+console.log("paper");
 }else if(myPlay > 66){
 //scissors
 console.log(myPlay);
 console.log("scissors");
 }
 
-var userInput=prompt("enter r, p, or s to select.");
+document.onkeyup =function(event){
+console.log(event.key);
+var result;
           //Ties
-		if(userInput ="r" && myPlay < 33){
-			console.log("rock tie");
-	}else if (userInput ="p" && myPlay > 33 && myPlay < 66){
-		console.log("paper tie");
-	}else if(userInput ="s" && myPlay > 66){
-			console.log("scissors tie");
+		if(event.key =="r" && myPlay < 33){
+			result="Rock Tie"
+	}else if (event.key =="p" && myPlay > 33 && myPlay < 66){
+		result="Paper Tie"
+	}else if(event.key =="s" && myPlay > 66){
+			result="Scissors Tie"
 			//User Wins
-	}else if(userInput ="r" && myPlay > 66){
-		console.log("user win. rock beats scissors");
-	}else if(userInput ="p" && myPlay < 33){
-		console.log("user win. paper beats rock");
-	}else if(userInput ="s" && myPlay > 33 && myPlay < 66){
-		console.log("user win. scissors beats paper");
+	}else if(event.key =="r" && myPlay > 66){
+		result="You win! Rock beats Scissors"
+	}else if(event.key =="p" && myPlay < 33){
+		result="You win!. Paper beats Rock"
+	}else if(event.key =="s" && myPlay > 33 && myPlay < 66){
+		result="You win! Scissors beats Paper"
 		//Computer Wins
-	}else if(myPlay < 33 && userInput ="s"){
-		console.log("computer wins. rock beats scissors");
-	}else if(myPlay > 33 && myPlay < 66 && userInput ="r"){
-		console("computer win. paper beats rock");
-	}else if(myPlay > 66 && userInput ="p"){
-		console.log("computer win. scissors beats paper")
+	}else if(myPlay < 33 && event.key =="s"){
+		result="Computer wins. Rock beats Scissors"
+	}else if(myPlay > 33 && myPlay < 66 && event.key =="r"){
+		result="Computer wins. Paper beats Rock";
+	}else if(myPlay > 66 && event.key =="p"){
+		result="Computer wins. Scissors beats Paper"
 	}
-
+	console.log(result);
+	document.getElementById('displayResults').innerHTML = result;
+}
 
 	
